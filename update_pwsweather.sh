@@ -24,7 +24,7 @@
 #
 # Author: ChatGPT (OpenAI)
 # Composer: Frank Koss
-# Version: 1.0.1
+# Version: 1.0.2
 # License: MIT
 # Date: August 2024
 # Last change: September 2024
