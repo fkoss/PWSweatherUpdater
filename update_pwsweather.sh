@@ -24,18 +24,19 @@
 #
 # Author: ChatGPT (OpenAI)
 # Composer: Frank Koss
-# Version: 1.0.0
+# Version: 1.0.1
 # License: MIT
 # Date: August 2024
+# Last change: September 2024
 #
 
 
 # Station Information
-STATION_ID="<YOUR-STATION-ID>"
-API_KEY="<YOUR-PWSWEATHER-API-KEY>"
+STATION_ID="INSERT_YOUR_STATION_ID_HERE"
+API_KEY="INSERT_YOUR_API_KEY_HERE"
 
 # Weather Station IP address
-WEATHER_STATION_IP="<YOUR-PWS-IP>"
+WEATHER_STATION_IP="INSERT_YOUR_STATION_IP_HERE"
 
 # Logfile
 LOGFILE="/var/log/pwsweather.com.log"
@@ -47,7 +48,7 @@ response=$(curl -s "http://$WEATHER_STATION_IP/get_livedata_info?")
 temp_c=$(echo $response | jq -r '.common_list[] | select(.id=="0x02").val')
 humidity=$(echo $response | jq -r '.common_list[] | select(.id=="0x07").val' | tr -d '%')
 dewpoint_c=$(echo $response | jq -r '.common_list[] | select(.id=="0x03").val')
-wind_speed_kmh=$(echo $response | jq -r '.common_list[] | select(.id=="0x19").val' | awk '{print $1}')
+wind_speed_kmh=$(echo $response | jq -r '.common_list[] | select(.id=="0x0B").val' | awk '{print $1}')
 wind_gust_kmh=$(echo $response | jq -r '.common_list[] | select(.id=="0x0C").val' | awk '{print $1}')
 wind_dir=$(echo $response | jq -r '.common_list[] | select(.id=="0x0A").val')
 pressure_hpa=$(echo $response | jq -r '.wh25[0].rel' | awk '{print $1}')
