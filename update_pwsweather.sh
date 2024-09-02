@@ -24,7 +24,7 @@
 #
 # Author: ChatGPT (OpenAI)
 # Composer: Frank Koss
-# Version: 1.0.2
+# Version: 1.0.3
 # License: MIT
 # Date: August 2024
 # Last change: September 2024
@@ -52,7 +52,7 @@ wind_speed_kmh=$(echo $response | jq -r '.common_list[] | select(.id=="0x0B").va
 wind_gust_kmh=$(echo $response | jq -r '.common_list[] | select(.id=="0x0C").val' | awk '{print $1}')
 wind_dir=$(echo $response | jq -r '.common_list[] | select(.id=="0x0A").val')
 pressure_hpa=$(echo $response | jq -r '.wh25[0].rel' | awk '{print $1}')
-rainin_mm=$(echo $response | jq -r '.rain[] | select(.id=="0x0D").val' | awk '{print $1}')
+rainin_mm=$(echo $response | jq -r '.rain[] | select(.id=="0x0E").val' | awk '{print $1}')
 dailyrainin_mm=$(echo $response | jq -r '.rain[] | select(.id=="0x10").val' | awk '{print $1}')
 
 # Translate units from metric to imperial
